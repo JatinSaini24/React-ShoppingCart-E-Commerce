@@ -10,7 +10,7 @@ import './App.css'
 
 function App() {
   const [data, setdata] = useState([...items])
-  const [cart, setCart] = useState([])
+  const [cart, setCart]= useState([])
   return (
     <>
       

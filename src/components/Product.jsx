@@ -15,6 +15,7 @@ const Product = ({items, cart, setCart}) => {
     setCart([...cart, obj]);
     setCart([...cart, obj]);
      console.log("Cart element = ",cart);
+     
      toast.success('Item added on cart', {
        position: "top-right",
       autoClose: 11500,
@@ -48,7 +49,7 @@ transition={Bounce}
       {
         items.map((product)=>{
           return(
-          //  <>
+            <>
             <div key={product.id} className='col-lg-4 col-md-6 my-3 text-center'>
            <div className='card' style={{width: '18rem'}}>
             <Link to={`/product/${product.id}`}
@@ -71,7 +72,7 @@ transition={Bounce}
               </div>
            </div>
            </div>
-          //  </>
+           </>
           )
         })
       }
