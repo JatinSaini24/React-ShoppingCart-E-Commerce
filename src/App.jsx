@@ -11,20 +11,67 @@ import './App.css'
 function App() {
   const [data, setdata] = useState([...items])
   const [cart, setCart]= useState([])
+  const [showCart, setShowCart] = useState(false)
   return (
     <>
-      
-      <Navbar cart={cart} setData={setdata}/>
+  
+      <Navbar
+        cart={cart}
+        setData={setdata}
+        showCart={showCart}
+        setShowCart={setShowCart}
+      />
+  
       <Routes>
-        <Route path='/' element={<Product cart={cart} setCart={setCart} items={data}/>}/>
-        <Route path='/product/:id' element={<ProductDetail cart={cart} setCart={setCart}/>}/>
-        <Route path='/search/:term' element={<SearchItem cart={cart} setCart={setCart}/>}/>
-        <Route path='/cart' element={<Cart cart={cart} setCart={setCart} />} />
+  
+        <Route
+          path='/'
+          element={
+            <Product
+              cart={cart}
+              setCart={setCart}
+              items={data}
+            />
+          }
+        />
+  
+        <Route
+          path='/product/:id'
+          element={
+            <ProductDetail
+              cart={cart}
+              setCart={setCart}
+            />
+          }
+        />
+  
+        <Route
+          path='/search/:term'
+          element={
+            <SearchItem
+              cart={cart}
+              setCart={setCart}
+            />
+          }
+        />
+  
+        <Route
+          path='/cart'
+          element={
+            <Cart
+              cart={cart}
+              setCart={setCart}
+            />
+          }
+        />
+  
       </Routes>
-      
-     
+  
     </>
   )
+      
+     
+  
 }
 
 export default App

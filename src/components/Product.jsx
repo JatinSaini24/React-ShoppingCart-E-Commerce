@@ -15,7 +15,6 @@ const Product = ({items, cart, setCart}) => {
     setCart([...cart, obj]);
     setCart([...cart, obj]);
      console.log("Cart element = ",cart);
-     
      toast.success('Item added on cart', {
        position: "top-right",
       autoClose: 11500,

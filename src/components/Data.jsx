@@ -5,7 +5,7 @@ export const items = [
         title: "Apple iPhone 14",
         imgSrc: 'https://img4.gadgetsnow.com/gd/images/products/additional/large/G390766_View_1/mobiles/smartphones/apple-iphone-14-128-gb-blue-6-gb-ram-.jpg/',
         description: 'Aplle iPhone 14 (128 GB) - Blue',
-        price: '54900',
+        price: 54900
     },
     {
         id:5,
@@ -13,7 +13,7 @@ export const items = [
         title: "HP Victus 39.6cm (15.6) Gaming Laptop 15-fb3120AX, Blue",
         imgSrc: 'https://in-media.apjonlinecdn.com/catalog/product/cache/74c1057f7991b4edb2bc7bdaa94de933/c/0/c08192495_47.png',
         description: 'HP Victus 39.6cm (15.6) Gaming Laptop 15-fb3120AX, Blue',
-        price: '126,369'
+        price: 126369 
     },
     {
         id:7,
@@ -21,7 +21,7 @@ export const items = [
         title: "Xiomi Pad 6",
         imgSrc: 'https://rukminim2.flixcart.com/image/1536/1536/xif0q/tablet/j/p/0/-original-imah4ycjks2mfnpg.jpeg?q=90',
         description: 'Xiomi Pad 6| Qualcomm Snapdragon 870',
-        price: '26999'
+        price: 26999
     },
     {
          id:2,
@@ -29,7 +29,7 @@ export const items = [
          title: "Apple iPhone 11",
          imgSrc: 'https://rukminim2.flixcart.com/image/1536/1536/k2jbyq80pkrrdj/mobile-refurbished/k/y/d/iphone-11-256-u-mwm82hn-a-apple-0-original-imafkg25mhaztxns.jpeg?q=90',
         description: 'Apple iPhone 11 (64GB) -White',
-        price: '39,478',
+        price: 39478
     },
     {
         id:6,
@@ -37,7 +37,7 @@ export const items = [
         title: "Lenovo Tab P12 Pro AMOLED",
         imgSrc: 'https://m.media-amazon.com/images/I/51-qefaWqYL._SX679_.jpg',
        description: 'Lenovo Tab P12 Pro 256 GB 12.6 Inches 2560x1600 -White',
-       price: '37,490',
+       price: 37490
    },
    {
     id:3,
@@ -45,7 +45,7 @@ export const items = [
     title: "Apple iPhone 13",
     imgSrc: 'https://rukminim2.flixcart.com/image/1536/1536/ktketu80/mobile/8/z/w/iphone-13-mlph3hn-a-apple-original-imag6vzzhrxgazsg.jpeg?q=90',
     description: 'Apple iPhone 13 (128GB) - Pink',
-    price: '55,000',
+    price: 55000
    },
    {
    id:4,
@@ -53,7 +53,7 @@ export const items = [
    title: "Lenovo IdeaPad Slim 5",
    imgSrc: 'https://p1-ofp.static.pub/medias/25764428908_CG_202304190257041779715251296.png?width=1200&height=1200',
    description: 'IdeaPad Slim 5 14 - Intel i5, 16 GB RAM, 1TB SSD',
-   price: '51,891',
+   price: 51891
    },
    {
    id:9,
@@ -61,7 +61,7 @@ export const items = [
    title: "Samsung Galaxy Tab A8",
    imgSrc: 'https://sell.gameloot.in/wp-content/uploads/sites/4/2022/06/Samsung-Galaxy-Tab-A8-64-GB-ROM-10.5-Inch-Wi-Fi-Cellular.jpg',
    description: 'Samsung Galaxy Tab A8 10.5” 64GB Android Tablet, LCD Screen, Kids Content, Smart Switch, Expandable Memory, Long Lasting Battery, Fast Charging, US Version, 2022, Dark Gray',
-   price: '17,472.86',
+   price: 17472.86
    },
    {
    id:8,
@@ -69,6 +69,6 @@ export const items = [
    title: "Apple Macbook Neo A18 Pro",
    imgSrc: 'https://rukminim2.flixcart.com/image/1536/1536/xif0q/computer/k/i/1/-original-imahh9yhxfymhgpg.jpeg?q=90',
    description:'Apple Macbook Neo A18 Pro(2026) A18 Pro - (8 GB/256 GB SSD/Tahoe) MHFA4HN/A (13 inch, Silver, 1.23 kg)',
-   price: '₹63,990',
+   price: 63990
    },
 ]
