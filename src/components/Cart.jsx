@@ -17,7 +17,7 @@ const Cart = ({cart,setCart}) => {
 
   return (
    <>
-  <div className="container my-5" style={{maxWidth:"700px"}}>
+ <div className="card mb-5 cart-card">
   
     { 
     cart.length===0 ?(
@@ -81,7 +81,7 @@ const Cart = ({cart,setCart}) => {
 
 {
 cart.length!==0 &&(
-<div className="container my-5" style={{width:"700px"}}>
+<div className="container my-5 cart-container">
 
 <div 
 className="card p-4 mx-auto" 

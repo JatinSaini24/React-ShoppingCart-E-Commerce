@@ -36,6 +36,15 @@ input::placeholder{
   text-decoration: none;
   color: white;
 }
+
+.cart-container{
+  width:700px;
+}
+
+.cart-card{
+  width:700px;
+}
+
 .nav-bar-wrapper{
   display: flex;
   justify-content: space-between;
@@ -45,23 +54,33 @@ input::placeholder{
   font-weight: bold;
 }
 
-.nav-bar-wrapper::-webkit-scrollbar{
-  display:none;
+
+
+.img{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.items{
-  flex-shrink:0;
+.img img{
+      width: 350px;
+      height: 350px;
 }
 
+.con{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4rem;
+}
 
 @media(max-width:768px){
 
   .nav-bar{
     display:flex;
     align-items:center;
-    justify-content:space-between;
     gap:8px;
-    padding:10px;
+    width:100%;
   }
 
   .brand{
@@ -70,47 +89,37 @@ input::placeholder{
   }
 
   .search-bar{
-    flex:1;
     width:auto;
-    margin:0 8px;
+    flex:1;
   }
 
   .search-bar input{
     width:100%;
-    font-size:14px;
+    font-size:12px;
   }
 
   .cart{
     width:auto;
-    font-size:16px;
+    font-size:14px;
   }
 
-  .cart button{
-    padding:6px 8px;
-    font-size:13px;
-  }
 
-  .nav-bar-wrapper{
-    justify-content:flex-start;
-    gap:15px;
-    overflow-x:auto;
-    white-space:nowrap;
+  .cart-container{
+    width:100%;
     padding:10px;
   }
 
-  .nav-bar-wrapper::-webkit-scrollbar{
-    display:none;
-  }
-
-  .img img{
+  .cart-card{
     width:100%;
-    max-width:300px;
-    height:auto;
   }
 
-  .con{
+  .cart-card .row{
     flex-direction:column;
-    gap:20px;
+  }
+
+  .cart-card img{
+    width:100%;
+    height:auto;
   }
 
 }
