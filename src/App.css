@@ -1,10 +1,51 @@
-.nav-bar{
-  display: flex;
-  justify-content: space-between;
-  background-color: #270858;
-  padding: 10px;
-  color: white;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
+
+html, body {
+  width: 100%;
+  overflow-x: hidden; 
+}
+.navbar {
+  display: flex;
+  flex-wrap: wrap; /* Mobile par content niche line me shift ho jayega */
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 15px;
+  width: 100%;
+  background-color: #4a148c; /* Aapka purple color */
+  box-sizing: border-box;
+}
+
+/* Agar koi lamba text ya filter text hai to uski width limit karein */
+.navbar-text {
+  font-size: 14px;
+  white-space: normal; /* Text ko wrap hone de, rigid line na banaye */
+  word-break: break-all; 
+}
+
+.product-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Mobile par 1 card, badi screen par automatic rows */
+  gap: 20px;
+  padding: 15px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.product-card {
+  width: 100%; /* Rigid pixel width (like width: 400px) mat lagana */
+  max-width: 100%;
+  box-sizing: border-box;
+  padding: 15px;
+}
+
+.product-card img {
+  max-width: 100%;
+  height: auto; /* Image screen ke hisab se scale karegi */
+} 
 .brand{
   font-weight: bolder;
   width: 20%;
