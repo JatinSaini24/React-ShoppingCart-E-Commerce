@@ -6,44 +6,59 @@ import { ToastContainer, toast, Bounce } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
 const Product = ({items, cart, setCart}) => {
 
-  const addToCart = (id,price,title,description,imgSrc) =>{
-    const obj = {
-      id,price,title,description,imgSrc
-    }
-    console.log(cart);
+  const addToCart = (id, price, title, description, imgSrc) => {
 
-    setCart([...cart, obj]);
-    setCart([...cart, obj]);
-     console.log("Cart element = ",cart);
-     toast.success('Item added on cart', {
-       position: "top-right",
+    const existingItem = cart.find((item) => item.id === id);
+  
+    if (existingItem) {
+  
+      const updatedCart = cart.map((item) =>
+        item.id === id
+          ? {
+              ...item,
+              quantity: item.quantity + 1
+            }
+          : item
+      );
+  
+      setCart(updatedCart);
+  
+    } else {
+  
+      const obj = {
+        id,
+        price: Number(price),
+        title,
+        description,
+        imgSrc,
+        quantity: 1
+      };
+  
+      setCart([...cart, obj]);
+  
+    }
+  
+  
+    toast.success('Item added on cart', {
+      position: "top-right",
       autoClose: 11500,
-       hideProgressBar: false,
+      hideProgressBar: false,
       closeOnClick: false,
       pauseOnHover: true,
       draggable: true,
       progress: undefined,
-     theme: "dark",
+      theme: "dark",
       transition: Bounce,
-     });
-  }
+    });
+  
+  };
+
   return (
     <>
-    <ToastContainer
-position="top-right"
-autoClose={11500}
-hideProgressBar={false}
-newestOnTop={false}
-closeOnClick={false}
-rtl={false}
-pauseOnFocusLoss
-draggable
-pauseOnHover
-theme="dark"
-transition={Bounce}
-/>
+      <ToastContainer />
 
-    <div className='container my-5'>
+      <div className='container my-5'>
+
       <div className="row">
       {
         items.map((product)=>{

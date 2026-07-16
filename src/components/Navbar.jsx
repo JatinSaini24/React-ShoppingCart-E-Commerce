@@ -4,7 +4,7 @@ import { items } from './Data'
 import { useState } from 'react'
 import { BsFillCartCheckFill } from "react-icons/bs";
 
-const Navbar = ({setData, cart, showCart, setShowCart}) => {
+const Navbar = ({setData,cart}) => {
   // console.log(useLocation());
 const  location =useLocation()
 const navigate = useNavigate()
@@ -30,7 +30,6 @@ const [searchTerm, setsearchTerm] = useState("")
       <header className='sticky-top'>
         <div className="nav-bar">
             <Link to={'/'} className="brand">E-cart</Link>
-
             <form
             onSubmit={handleSubmit}
             className="search-bar">

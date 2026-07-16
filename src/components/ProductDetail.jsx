@@ -63,9 +63,8 @@ transition={Bounce}
     <h1 className="card-title">{product.title}</h1>
     <p className="card-text">{product.description}</p>
     <button className='btn btn-primary mx-3'>{product.price}{""}₹</button>
-    <button 
-                   onClick={()=>addToCart(product.id,product.price,product.title,product.description,product.imgSrc)}
-                   className="btn btn-warning">Add To Cart</button>
+    <button onClick={()=>addToCart(product.id,product.price,product.title,product.description,product.imgSrc)} 
+    className="btn btn-warning">Add To Cart</button>
     </div>
    </div>
    <h1 className='text-center'>Related Products</h1>

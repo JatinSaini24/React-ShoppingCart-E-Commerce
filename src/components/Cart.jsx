@@ -1,229 +1,156 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from 'react'
+import { Link } from 'react-router-dom'
 
-const Cart = ({ cart, setCart, showCart }) => {
+const Cart = ({cart,setCart}) => {
 
-  const subtotal = cart.reduce(
-    (sum, item) =>
-      sum + Number(item.price) * (item.quantity || 1),
-    0
-  );
+  // Subtotal calculation
+  const subtotal = cart.reduce((sum, product) => {
+    return sum + Number(product.price)
+  },0)
 
-  const deliveryFee = 20;
-  const taxes = subtotal * 0.005;
-  const total = subtotal + deliveryFee + taxes;
-   
-  if (cart.length === 0) {
-    return (
-      <div className="min-h-screen flex flex-col justify-center items-center">
-        <h1 className="text-3xl font-bold">
-          Order Items
-        </h1>
-  
-        <p className="text-xl text-gray-500 mt-3">
-          Empty Cart
-        </p>
-      </div>
-    );
-  }
+  const deliveryFee = 20
+
+  const taxes = subtotal * 0.005
+
+  const total = subtotal + deliveryFee + taxes
+
 
   return (
-    <>
- <div className="container my-5 w-full px-3 sm:w-3/4 lg:w-1/2">
+   <>
+   <div className="container my-5" style={{width:"700px"}}>
+  
+    { 
+    cart.length===0 ?(
+      <div className="text-center">
+        <h1>Your Cart is Empty</h1>
+        <Link to={"/"} className='btn btn-warning'>
+          Continue Shopping...
+        </Link>
+      </div>
+    )
+    :
+    cart.map((product)=>{
+      return(<div 
+        className="card shadow mb-5 p-3" 
+        style={{
+          width:'700px',
+          borderRadius:"15px"
+        }} 
+        key={product.id}
+        >
+          <div className="row g-0">
 
-      {
-cart.length !== 0 && (
+            <div className="col-md-4">
+              <img 
+                src={product.imgSrc} 
+                className="img-fluid rounded-start" 
+                alt="" 
+              />
+            </div>
 
-    <div className="container my-5">
+            <div className="col-md-8">
+              <div className="card-body">
+
+                <h5 className="card-title">
+                  {product.title}
+                </h5>
+
+                <p className="card-text">
+                  {product.description}
+                </p>
+
+                <button className="btn btn-primary mx-3">
+                  {product.price} ₹
+                </button>
+
+                <button className="btn btn-warning">
+                  Buy Now
+                </button>
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+      )
+    })
+    }
+
+   </div>
+
+
+{
+cart.length!==0 &&(
+<div className="container my-5" style={{width:"700px"}}>
 
 <div 
- className="card shadow p-4 w-full"
+className="card p-4 mx-auto" 
+style={{
+  width:"700px",
+  borderRadius:"15px"
+}}
 >
-        <h2 className="mb-4 text-center">
-          Order Items
-        </h2>
-
-
-        {
-          cart.map((item)=>(
-
-            <div 
-              key={item.id}
-              className="d-flex flex-wrap justify-content-between align-items-center mb-4"
-            >
-
-<div className="d-flex align-items-center">
-
-<img
-  src={item.imgSrc}
-  alt={item.title}
-  style={{
-    width: "60px",
-    height: "60px",
-    objectFit: "cover",
-    borderRadius: "10px",
-    marginRight: "15px"
-  }}
-/>
-
-
-<div>
-
-<h5
-  className="mb-1"
-  style={{
-    width: "170px",
-    fontSize: "14px"
-  }}
->
-    {item.title}
-  </h5>
-
-
-                <div className="d-flex align-items-center mt-2">
-
-                <button
-  onClick={() => {
-    setCart(
-      cart.map((p) =>
-        p.id === item.id
-          ? {
-              ...p,
-              quantity: (p.quantity || 1) + 1,
-            }
-          : p
-      )
-    );
-  }}
-  className="btn btn-light border"
->
-  +
-</button>
-
-<span className="mx-3">
-  {item.quantity || 1}
+<h5>
+Subtotal 
+<span className="float-end">
+Rs {subtotal} /-
 </span>
+</h5>
 
 
-<button
-  onClick={() => {
-    setCart(
-      cart
-        .map((p) =>
-          p.id === item.id
-            ? {
-                ...p,
-                quantity: (p.quantity || 1) - 1,
-              }
-            : p
-        )
-        .filter((p) => (p.quantity || 1) > 0)
-    );
-  }}
-  className="btn btn-light border"
->
-  -
-</button>
-
-                </div>
+<h5>
+Delivery Fee 
+<span className="float-end">
+Rs {deliveryFee} /-
+</span>
+</h5>
 
 
-                </div>
+<h5>
+Taxes 
+<span className="float-end">
+Rs {taxes.toFixed(1)} /-
+</span>
+</h5>
+
+
+<hr/>
+
+
+<h4>
+Total
+<span className="float-end">
+Rs {total.toFixed(0)} /-
+</span>
+</h4>
+
 
 </div>
 
 
-<h6>
-  Rs {Number(item.price) * (item.quantity || 1)}/-
-</h6>
-            </div>
+<div className="text-center my-4">
 
-          ))
-        }
+<button className='btn btn-warning mx-3'>
+Check Out
+</button>
 
 
-        <hr/>
+<button 
+onClick={()=>setCart([])}
+className='btn btn-danger'>
+Clear Cart
+</button>
 
+</div>
 
-        <div className="d-flex justify-content-between mb-2">
-
-          <span>
-            Subtotal
-          </span>
-
-          <span>
-            Rs {subtotal}/-
-          </span>
-
-        </div>
-
-
-
-        <div className="d-flex justify-content-between mb-2">
-
-          <span>
-            Delivery Fee
-          </span>
-
-          <span>
-            Rs {deliveryFee}/-
-          </span>
-
-        </div>
-
-
-
-        <div className="d-flex justify-content-between mb-2">
-
-          <span>
-            Taxes
-          </span>
-
-          <span>
-            Rs {taxes.toFixed(2)}/-
-          </span>
-
-        </div>
-
-
-
-        <hr/>
-
-
-
-        <div className="d-flex justify-content-between fw-bold fs-4">
-
-          <span>
-            Total
-          </span>
-
-          <span>
-            Rs {total.toFixed(2)}/-
-          </span>
-
-        </div>
-
-
-
-        <button className="btn btn-warning w-100 mt-4">
-          Place Order
-        </button>
-
-
-      
-      
-        </div>
 
 </div>
 
 )
 }
 
-  </div>
+   </>
+  )
+}
 
-</>
-
-);
-};
-
-export default Cart;
+export default Cart

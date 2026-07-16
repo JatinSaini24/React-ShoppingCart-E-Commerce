@@ -2,7 +2,6 @@ import React, { useEffect,useState} from 'react'
 import { useParams } from 'react-router-dom'
 import { items } from './Data';
 import Product from './Product';
-
 const SearchItem = ({cart,setCart}) => {
   // console.log(params);
   //console.log(useparams);
@@ -21,8 +20,15 @@ const SearchItem = ({cart,setCart}) => {
   
 },[term])
 
-return ( 
-<Product cart={cart} setCart={setCart}items={filterData}/>
+return (
+  <>
+   
+    <Product 
+      cart={cart} 
+      setCart={setCart} 
+      items={filterData}
+    />
+  </>
 )
 }
 
