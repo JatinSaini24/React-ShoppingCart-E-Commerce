@@ -17,7 +17,7 @@ const Cart = ({cart,setCart}) => {
 
   return (
    <>
-   <div className="container my-5" style={{width:"700px"}}>
+  <div className="container my-5" style={{maxWidth:"700px"}}>
   
     { 
     cart.length===0 ?(

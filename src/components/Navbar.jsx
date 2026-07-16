@@ -40,11 +40,16 @@ const [searchTerm, setsearchTerm] = useState("")
             </form>
 
             <Link to={'/cart'} className="cart">
-            <button type="button" className="btn btn-primary position-relative">
-              Cart
-    <BsFillCartCheckFill style={{fontSize:'1.5rem'}}/>
+            <button
+  type="button"
+  className="btn btn-primary position-relative d-flex align-items-center gap-1"
+>
+  <span className="d-none d-sm-inline">Cart</span>
+
+  <BsFillCartCheckFill style={{ fontSize: "1.2rem" }} />
+
   <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-   {cart.length}
+    {cart.length}
     <span className="visually-hidden">unread messages</span>
   </span>
 </button>
