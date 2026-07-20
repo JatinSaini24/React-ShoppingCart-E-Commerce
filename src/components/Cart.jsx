@@ -3,154 +3,280 @@ import { Link } from 'react-router-dom'
 
 const Cart = ({cart,setCart}) => {
 
-  // Subtotal calculation
-  const subtotal = cart.reduce((sum, product) => {
+
+  // Subtotal Calculation
+  const subtotal = cart.reduce((sum, product)=>{
     return sum + Number(product.price)
   },0)
 
-  const deliveryFee = 20
 
-  const taxes = subtotal * 0.005
+  const deliveryFee = 20;
 
-  const total = subtotal + deliveryFee + taxes
+  const taxes = subtotal * 0.005;
+
+  const total = subtotal + deliveryFee + taxes;
+
 
 
   return (
-   <>
- <div className="card mb-5 cart-card">
-  
-    { 
-    cart.length===0 ?(
-      <div className="text-center">
-        <h1>Your Cart is Empty</h1>
-        <Link to={"/"} className='btn btn-warning'>
-          Continue Shopping...
-        </Link>
-      </div>
-    )
-    :
-    cart.map((product)=>{
-      return(<div 
-        className="card shadow mb-5 p-3" 
-        style={{
-          width:'700px',
-          borderRadius:"15px"
-        }} 
-        key={product.id}
-        >
-          <div className="row g-0">
 
-            <div className="col-md-4">
-              <img 
-                src={product.imgSrc} 
-                className="img-fluid rounded-start" 
-                alt="" 
-              />
-            </div>
-
-            <div className="col-md-8">
-              <div className="card-body">
-
-                <h5 className="card-title">
-                  {product.title}
-                </h5>
-
-                <p className="card-text">
-                  {product.description}
-                </p>
-
-                <button className="btn btn-primary mx-3">
-                  {product.price} ₹
-                </button>
-
-                <button className="btn btn-warning">
-                  Buy Now
-                </button>
-
-              </div>
-            </div>
-
-          </div>
-        </div>
-      )
-    })
-    }
-
-   </div>
+<>
+    
+<div className="cart-page">
 
 
 {
-cart.length!==0 &&(
-<div className="container my-5 cart-container">
+cart.length === 0 ? (
+
+<div className="text-center">
+
+<h1>Your Cart is Empty</h1>
+
+<Link 
+to={"/"} 
+className="btn btn-warning"
+>
+
+Continue Shopping...
+
+</Link>
+
+
+</div>
+
+
+)
+
+:
+
+cart.map((product)=>{
+
+
+return(
 
 <div 
-className="card p-4 mx-auto" 
-style={{
-  width:"700px",
-  borderRadius:"15px"
-}}
+className="cart-box"
+key={product.id}
 >
+
+
+<div className="cart-item">
+
+
+{/* PRODUCT IMAGE */}
+
+<div className="cart-item-image">
+
+
+<img
+
+src={product.imgSrc}
+
+alt={product.title}
+
+/>
+
+
+</div>
+
+
+
+
+
+{/* PRODUCT DETAILS */}
+
+
+<div className="cart-item-details">
+
+
 <h5>
-Subtotal 
-<span className="float-end">
+
+{product.title}
+
+</h5>
+
+
+
+<p>
+
+{product.description}
+
+</p>
+
+
+
+
+<h4>
+
+{product.price} ₹
+
+</h4>
+
+
+
+<div>
+
+
+<button className="btn btn-primary mx-2">
+
+Buy Now
+
+</button>
+
+
+<button 
+className="btn btn-danger"
+
+onClick={()=>setCart(
+cart.filter(item=>item.id!==product.id)
+)}
+
+>
+
+Remove
+
+</button>
+
+
+</div>
+
+
+
+</div>
+
+
+
+</div>
+
+
+</div>
+
+
+)
+
+
+})
+
+}
+
+
+
+</div>
+
+
+
+
+
+
+{
+cart.length !==0 &&
+
+(
+
+<div className="cart-total">
+
+
+<h5>
+
+Subtotal
+
+<span>
+
 Rs {subtotal} /-
+
 </span>
+
 </h5>
 
 
+
 <h5>
-Delivery Fee 
-<span className="float-end">
+
+Delivery Fee
+
+<span>
+
 Rs {deliveryFee} /-
+
 </span>
+
 </h5>
+
 
 
 <h5>
-Taxes 
-<span className="float-end">
+
+Taxes
+
+<span>
+
 Rs {taxes.toFixed(1)} /-
+
 </span>
+
 </h5>
+
 
 
 <hr/>
 
 
 <h4>
+
 Total
-<span className="float-end">
+
+<span>
+
 Rs {total.toFixed(0)} /-
+
 </span>
+
 </h4>
 
 
-</div>
 
 
-<div className="text-center my-4">
+<div className="text-center mt-4">
 
-<button className='btn btn-warning mx-3'>
+
+<button className="btn btn-warning mx-2">
+
 Check Out
+
 </button>
+
 
 
 <button 
+
+className="btn btn-danger"
+
 onClick={()=>setCart([])}
-className='btn btn-danger'>
+
+>
+
 Clear Cart
+
 </button>
 
+
 </div>
+
 
 
 </div>
 
 )
+
 }
 
-   </>
+
+
+</>
+
   )
+
 }
+
 
 export default Cart
